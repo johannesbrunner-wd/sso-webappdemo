@@ -2,16 +2,20 @@
     "trailingSlash": "auto",
     "routes": [
         {
+            "route": "/login",
+            "rewrite": "/.auth/login/ssowd"
+        },
+        {
             "route": "/*",
             "allowedRoles": ["authenticated"]            
-        }
+        }        
     ],
     "navigationFallback": {
         "rewrite": "/index.html"
     },
     "responseOverrides": {
         "401": {
-            "rewrite": "/.auth/login/keycloak",
+            "rewrite": "/.auth/login/ssowd",
             "statusCode": 302
         }
     },
@@ -22,11 +26,11 @@
     "auth": {        
       "identityProviders": {
         "customOpenIdConnectProviders": {
-          "keycloak": {            
+          "ssowd": {            
             "registration": {
-              "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
+              "clientIdSettingName": "SSOWD_PROVIDER_CLIENT_ID",
               "clientCredential": {
-                "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET"
+                "clientSecretSettingName": "SSOWD_PROVIDER_CLIENT_SECRET"
               },
               "openIdConnectConfiguration": {
                 "wellKnownOpenIdConfiguration": "https://sso.world-direct.at/auth/realms/fits-invenium/.well-known/openid-configuration"
