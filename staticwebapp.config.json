@@ -9,10 +9,7 @@
             "route": "/*",
             "allowedRoles": ["authenticated"]            
         }        
-    ],
-    "navigationFallback": {
-        "rewrite": "/index.html"
-    },
+    ],    
     "responseOverrides": {
         "401": {
             "rewrite": "/.auth/login/ssowd",
