@@ -1,4 +1,11 @@
 {
+    "trailingSlash": "auto",
+    "routes": [
+        {
+            "route": "/*",
+            "allowedRoles": ["authenticated"]
+          }
+    ],
     "auth": {
       "identityProviders": {
         "customOpenIdConnectProviders": {
