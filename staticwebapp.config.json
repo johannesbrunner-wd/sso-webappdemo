@@ -14,7 +14,7 @@
             "rewrite": "/.auth/me"
         },              
         {
-            "route": "/index.html",
+            "route": "/*",
             "allowedRoles": ["authenticated"]            
         }        
     ],    
