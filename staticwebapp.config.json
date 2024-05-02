@@ -6,13 +6,21 @@
             "rewrite": "/.auth/login/ssowd"
         },
         {
-            "route": "/*",
+            "route": "/logout",
+            "rewrite": "/.auth/logout"
+        },      
+        {
+            "route": "/profile",
+            "rewrite": "/.auth/me"
+        },              
+        {
+            "route": "/index.html",
             "allowedRoles": ["authenticated"]            
         }        
     ],    
     "responseOverrides": {
         "401": {
-            "rewrite": "/.auth/login/ssowd",
+            "rewrite": "/login",
             "statusCode": 302
         }
     },
