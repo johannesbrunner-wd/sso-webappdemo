@@ -3,13 +3,26 @@
     "routes": [
         {
             "route": "/*",
-            "allowedRoles": ["authenticated"]
-          }
+            "allowedRoles": ["authenticated"]            
+        }
     ],
-    "auth": {
+    "navigationFallback": {
+        "rewrite": "/index.html"
+    },
+    "responseOverrides": {
+        "401": {
+            "rewrite": "/.auth/login/keycloak",
+            "statusCode": 302
+        }
+    },
+    "globalHeaders": {
+        "Access-Control-Allow-Origin": "https://sso.world-direct.at",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+    },
+    "auth": {        
       "identityProviders": {
         "customOpenIdConnectProviders": {
-          "keycloak": {
+          "keycloak": {            
             "registration": {
               "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
               "clientCredential": {
