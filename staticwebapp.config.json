@@ -14,13 +14,13 @@
             "rewrite": "/.auth/me"
         },              
         {
-            "route": "/*",
+            "route": "/index",
             "allowedRoles": ["authenticated"]            
         }        
     ],    
     "responseOverrides": {
         "401": {
-            "rewrite": "/login",
+            "redirect": "/login",
             "statusCode": 302
         }
     },
