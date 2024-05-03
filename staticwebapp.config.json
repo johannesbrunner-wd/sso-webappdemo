@@ -14,7 +14,11 @@
             "rewrite": "/.auth/me"
         },              
         {
-            "route": "/index",
+            "route": "/",
+            "allowedRoles": ["authenticated"]            
+        },
+        {
+            "route": "/app/*",
             "allowedRoles": ["authenticated"]            
         }        
     ],    
