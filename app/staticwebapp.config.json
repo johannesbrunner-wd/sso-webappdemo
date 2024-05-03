@@ -23,6 +23,11 @@
         {
             "route": "/index.html",
             "allowedRoles": ["authenticated"]            
+        },
+        {
+          "route": "/api/*",
+          "methods": ["GET"],
+          "allowedRoles": ["authenticated"]
         }        
     ],    
     "responseOverrides": {
