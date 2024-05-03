@@ -12,7 +12,7 @@
             "allowedRoles": ["authenticated"]            
         },      
         {
-            "route": "/profile",
+            "route": "/userprofile",
             "rewrite": "/.auth/me",
             "allowedRoles": ["authenticated"]
         },              
