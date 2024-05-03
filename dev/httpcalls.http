@@ -1,0 +1,6 @@
+#Call API
+GET https://gray-river-0d65c6203.5.azurestaticapps.net/api/httpTrigger1
+
+###
+#with parameters
+GET https://gray-river-0d65c6203.5.azurestaticapps.net/api/httpTrigger1?name=Johannes
