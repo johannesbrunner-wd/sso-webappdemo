@@ -13,7 +13,7 @@
         },      
         {
             "route": "/userprofile",
-            "rewrite": "/.auth/me",
+            "redirect": "/.auth/me",
             "allowedRoles": ["authenticated"]
         },              
         {
