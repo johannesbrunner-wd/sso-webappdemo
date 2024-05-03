@@ -3,22 +3,25 @@
     "routes": [
         {
             "route": "/login",
-            "rewrite": "/.auth/login/ssowd"
+            "rewrite": "/.auth/login/ssowd",
+            "allowedRoles": ["anonymous"]
         },
         {
             "route": "/logout",
-            "rewrite": "/.auth/logout"
+            "rewrite": "/.auth/logout",
+            "allowedRoles": ["authenticated"]            
         },      
         {
             "route": "/profile",
-            "rewrite": "/.auth/me"
+            "rewrite": "/.auth/me",
+            "allowedRoles": ["authenticated"]
         },              
         {
             "route": "/",
             "allowedRoles": ["authenticated"]            
         },
         {
-            "route": "/app/*",
+            "route": "/index.html",
             "allowedRoles": ["authenticated"]            
         }        
     ],    
