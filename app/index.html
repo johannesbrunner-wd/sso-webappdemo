@@ -22,9 +22,16 @@
         <a href="/login">Login</a>
         <a href="/logout">Logout</a>
         <a href="/userprofile">Benutzerprofil</a>
+        <p>Loading content from the API: <b id="name">...</b></p>
     </main>
     <footer>
         <p>&copy; 2023 Meine Website. Alle Rechte vorbehalten.</p>
-    </footer>    
+    </footer> 
+    <script>
+        (async function() {
+            const { text } = await( await fetch(`/api/httpTrigger1`)).json();
+            document.querySelector('#name').textContent = text;
+        }());
+    </script>   
 </body>
 </html>
