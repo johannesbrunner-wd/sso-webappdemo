@@ -4,7 +4,7 @@ const cosmosInput = input.cosmosDB({
     collectionName: 'my-container',
     id: '9982a992-ef92-44a2-b01c-e2be586208ae',
     partitionKey: '/id',
-    connectionStringSetting: 'MyAccount_COSMOSDB',
+    connectionStringSetting: 'CosmosDbConnectionSetting',
 });
 
 app.http('httpTrigger1', {
