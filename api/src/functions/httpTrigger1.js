@@ -1,14 +1,15 @@
-const { app, output } = require('@azure/functions');
-const sendToCosmosDb = output.cosmosDB({
+const { app, input } = require('@azure/functions');
+const cosmosInput = input.cosmosDB({
     databaseName: 'my-database',
-    containerName: 'my-container',
-    createIfNotExists: false,
-    connection: 'CosmosDBConnectionString',
-  });
+    collectionName: 'my-container',
+    id: '9982a992-ef92-44a2-b01c-e2be586208ae',
+    partitionKey: '/id',
+    connectionStringSetting: 'MyAccount_COSMOSDB',
+});
 
 app.http('httpTrigger1', {
     methods: ['GET', 'POST'],
-    extraOutputs: [sendToCosmosDb],
+    extraInputs: [cosmosInput],
     authLevel: 'anonymous',
     handler: async (request, context) => {
         context.log(`Http function processed request for url "${request.url}"`);
@@ -17,11 +18,7 @@ app.http('httpTrigger1', {
 
         try {
             // Output to Database
-            context.extraOutputs.set(sendToCosmosDb, {
-            // create a random ID
-            id: new Date().toISOString() + Math.random().toString().substring(2, 10),
-            name: name,
-            });
+            const doc = context.extraInputs.get(cosmosInput);
         } catch (error) {
             context.log(`Error: ${error}`);
             return { status: 500, body: 'Internal Server Error' };
