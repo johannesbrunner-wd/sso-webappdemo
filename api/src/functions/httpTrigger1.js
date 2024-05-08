@@ -19,6 +19,7 @@ app.http('httpTrigger1', {
             // Output to Database
             const doc = context.extraInputs.get(cosmosInput);
             context.log(doc);
+            name = doc[0].msg;
         } catch (error) {
             context.log(`Error: ${error}`);
             return { status: 500, jsonBody: { text: 'Internal Server Error' } };
