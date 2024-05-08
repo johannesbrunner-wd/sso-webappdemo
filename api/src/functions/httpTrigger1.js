@@ -2,8 +2,7 @@ const { app, input } = require('@azure/functions');
 const cosmosInput = input.cosmosDB({
     databaseName: 'my-database',
     containerName: 'my-container',
-    partitionKey: '/id',
-    id: '9982a992-ef92-44a2-b01c-e2be586208ae',
+    sqlQuery: 'SELECT * from c',
     connection: 'CosmosDbConnectionSetting',
 });
 
