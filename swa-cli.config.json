@@ -7,7 +7,9 @@
       "outputLocation": ".",
       "apiLanguage": "node",
       "apiVersion": "16",
-      "apiBuildCommand": "npm run build --if-present"
+      "apiBuildCommand": "npm run build --if-present",
+      "useKeychain": false,
+      "tenant": "3ea78af3-094b-492f-9237-8077bc4f31ab"
     }
   }
 }
