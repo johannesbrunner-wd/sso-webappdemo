@@ -3,7 +3,7 @@
   "configurations": {
     "sso-webappdemo": {
       "appLocation": "app",
-      "apiLocation": "api",
+      "apiLocation": "",
       "outputLocation": ".",
       "apiLanguage": "node",
       "apiVersion": "16",
