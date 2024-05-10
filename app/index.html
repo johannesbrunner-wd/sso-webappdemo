@@ -29,7 +29,7 @@
     </footer> 
     <script>
         (async function() {
-            const { text } = await( await fetch(`/api/httpTrigger1`)).json();
+            const { text } = await( await fetch(`/api/HttpExample`)).json();
             document.querySelector('#name').textContent = text;
         }());
     </script>   
