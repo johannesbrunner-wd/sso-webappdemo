@@ -53,7 +53,8 @@
         (async function() {
             //const { text } = await( await fetch(`/api/HttpExample`)).json();
             //document.querySelector('#name').textContent = text;
-
+            https://sso.world-direct.at/auth/realms/fits-invenium/protocol/openid-connect/.well-known/openid-configuration
+            https://sso.world-direct.at/auth/realms/fits-invenium/.well-known/openid-configuration
 
             
         }());
@@ -308,7 +309,7 @@ const msalConfig = {
 
         clientId: "webapp-client", // This is the ONLY mandatory field that you need to supply
         // WORKFORCE TENANT
-        authority: "https://sso.world-direct.at/auth/realms/fits-invenium/protocol/openid-connect", //  Replace the placeholder with your tenant info
+        authority: "https://sso.world-direct.at/auth/realms/fits-invenium", //  Replace the placeholder with your tenant info
         // EXTERNAL TENANT
         // authority: "https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/", // Replace the placeholder with your tenant subdomain
         knownAuthorities: ["sso.world-direct.at"],
@@ -355,6 +356,27 @@ const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
 let username = "";
 
+function selectAccount() {
+    /**
+     * See here for more info on account retrieval: 
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
+     */
+
+    const currentAccounts = myMSALObj.getAllAccounts();
+
+    if (!currentAccounts) {
+        return;
+    } else if (currentAccounts.length > 1) {
+        // Add your account choosing logic here
+        console.warn("Multiple accounts detected.");
+    } else if (currentAccounts.length === 1) {
+        username = currentAccounts[0].username
+        welcomeUser(currentAccounts[0].username);
+        updateTable(currentAccounts[0]);
+    }
+}
+
+
 /**
  * A promise handler needs to be registered for handling the
  * response returned from redirect flow. For more information, visit:
@@ -377,7 +399,7 @@ function handleResponse(response) {
         //welcomeUser(username);
         updateTable(response.account);
     } else {
-        //selectAccount();
+        selectAccount();
 
         /**
          * If you already have a session that exists with the authentication server, you can use the ssoSilent() API
