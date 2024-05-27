@@ -9,25 +9,25 @@
         {
             "route": "/logout",
             "rewrite": "/.auth/logout",
-            "allowedRoles": ["authenticated"]            
+            "allowedRoles": ["anonymous"]            
         },      
         {
             "route": "/userprofile",
             "redirect": "/.auth/me",
-            "allowedRoles": ["authenticated"]
+            "allowedRoles": ["anonymous"]
         },              
         {
             "route": "/",
-            "allowedRoles": ["authenticated"]            
+            "allowedRoles": ["anonymous"]            
         },
         {
             "route": "/index.html",
-            "allowedRoles": ["authenticated"]            
+            "allowedRoles": ["anonymous"]            
         },
         {
           "route": "/api/*",
           "methods": ["GET"],
-          "allowedRoles": ["authenticated"]
+          "allowedRoles": ["anonymous"]
         }        
     ],    
     "responseOverrides": {
