@@ -60,6 +60,11 @@ const silentRequest = {
    loginHint: "demojbr"
 };
 
+
+const loginRequest = {
+    scopes: [],
+};
+
 const tableDiv = document.getElementById('table-div');
 const tableBody = document.getElementById('table-body-div');
 
@@ -349,9 +354,6 @@ const msalConfig = {
 
 
 
-const loginRequest = {
-    scopes: [],
-};
 
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
@@ -400,7 +402,7 @@ function handleResponse(response) {
         //welcomeUser(username);
         updateTable(response.account);
     } else {
-        //selectAccount();
+        selectAccount();
 
         /**
          * If you already have a session that exists with the authentication server, you can use the ssoSilent() API
@@ -408,16 +410,16 @@ function handleResponse(response) {
          * line above and uncomment the section below.
          */
 
-        myMSALObj.ssoSilent(silentRequest).
-             then((response) => {
-                 welcomeUser(response.account.username);
-                 updateTable(response.account);
-             }).catch(error => {
-                 console.error("Silent Error: " + error);
-                 if (error instanceof msal.InteractionRequiredAuthError) {
-                     signIn();
-                 }
-             });
+        //myMSALObj.ssoSilent(silentRequest).
+        //     then((response) => {
+        //         welcomeUser(response.account.username);
+        //         updateTable(response.account);
+        //     }).catch(error => {
+        //         console.error("Silent Error: " + error);
+        //         if (error instanceof msal.InteractionRequiredAuthError) {
+        //             signIn();
+        //        }
+        //     });
     }
 }    
 
