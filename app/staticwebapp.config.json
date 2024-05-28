@@ -50,10 +50,7 @@
                 "clientSecretSettingName": "SSOWD_PROVIDER_CLIENT_SECRET"
               },
               "openIdConnectConfiguration": {
-                "issuer": "https://sso.world-direct.at/auth/realms/fits-invenium", 
-                "authorizationEndpoint": "https://sso.world-direct.at/auth/realms/fits-invenium/protocol/openid-connect/auth", 
-                "tokenEndpoint": "https://sso.world-direct.at/auth/realms/fits-invenium/protocol/openid-connect/token", 
-                "certificationUri": "https://sso.world-direct.at/auth/realms/fits-invenium/protocol/openid-connect/certs"
+                "wellKnownOpenIdConfiguration": "https://sso.world-direct.at/auth/realms/fits-invenium/.well-known/openid-configuration"
               }
             },
             "login": {
