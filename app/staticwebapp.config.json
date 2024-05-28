@@ -9,25 +9,25 @@
         {
             "route": "/logout",
             "rewrite": "/.auth/logout",
-            "allowedRoles": ["anonymous"]            
+            "allowedRoles": ["authenticated"]            
         },      
         {
             "route": "/userprofile",
             "redirect": "/.auth/me",
-            "allowedRoles": ["anonymous"]
+            "allowedRoles": ["authenticated"]
         },              
         {
             "route": "/",
-            "allowedRoles": ["anonymous"]            
+            "allowedRoles": ["authenticated"]            
         },
         {
             "route": "/index.html",
-            "allowedRoles": ["anonymous"]            
+            "allowedRoles": ["authenticated"]            
         },
         {
           "route": "/api/*",
           "methods": ["GET"],
-          "allowedRoles": ["anonymous"]
+          "allowedRoles": ["authenticated"]
         }        
     ],    
     "responseOverrides": {
@@ -50,7 +50,10 @@
                 "clientSecretSettingName": "SSOWD_PROVIDER_CLIENT_SECRET"
               },
               "openIdConnectConfiguration": {
-                "wellKnownOpenIdConfiguration": "https://sso.world-direct.at/auth/realms/fits-invenium/.well-known/openid-configuration"
+                "issuer": "https://sso.world-direct.at/auth/realms/fits-invenium", 
+                "authorizationEndpoint": "https://sso.world-direct.at/auth/realms/fits-invenium/protocol/openid-connect/auth", 
+                "tokenEndpoint": "https://sso.world-direct.at/auth/realms/fits-invenium/protocol/openid-connect/token", 
+                "certificationUri": "https://sso.world-direct.at/auth/realms/fits-invenium/protocol/openid-connect/certs"
               }
             },
             "login": {
